@@ -14,21 +14,104 @@
 <body>
 
 <header class="hero">
-
 <div class="hero-card">
 
-<h1>A1 Vocabulary 🍃</h1>
+<h1>A1 Vocabulary 🌱</h1>
 
-<p>Welcome to your first vocabulary lessons.</p>
+<p>Choose a topic to start learning.</p>
 
 <button onclick="location.href='index.html'">
 ← Back to Home
 </button>
 
 </div>
-
 </header>
 
+<section class="levels">
+
+<h2>Vocabulary Topics</h2>
+
+<div class="books">
+
+<div class="book-row">
+
+<div class="book">
+👋
+<h3>Greetings</h3>
+
+<button onclick="openTopic(this)">
+Open
+</button>
+
+</div>
+
+<div class="lesson-panel">
+
+<button>Hello</button>
+<button>Hi</button>
+<button>Good morning</button>
+<button>Good afternoon</button>
+<button>Good evening</button>
+<button>Goodbye</button>
+<button>See you later</button>
+
+</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book">
+🔢
+<h3>Numbers</h3>
+
+<button onclick="openTopic(this)">
+Open
+</button>
+
+</div>
+
+<div class="lesson-panel">
+
+<button>One</button>
+<button>Two</button>
+<button>Three</button>
+<button>Four</button>
+<button>Five</button>
+
+</div>
+
+</div>
+
+<div class="book-row">
+
+<div class="book">
+🎨
+<h3>Colors</h3>
+
+<button onclick="openTopic(this)">
+Open
+</button>
+
+</div>
+
+<div class="lesson-panel">
+
+<button>Red</button>
+<button>Blue</button>
+<button>Green</button>
+<button>Yellow</button>
+<button>Black</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
 </body>
 
 </html>
