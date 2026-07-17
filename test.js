@@ -169,6 +169,8 @@ const questions = [
 ];
 
 let currentQuestion = 0;
+let score = 0;
+
 let levelScores = {
     A1: 0,
     A2: 0,
