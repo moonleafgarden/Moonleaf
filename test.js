@@ -170,14 +170,6 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
-
-let levelScores = {
-    A1: 0,
-    A2: 0,
-    B1: 0,
-    B2: 0,
-    C1: 0,
-    C2: 0
 };
 let selectedAnswer = null;
 
