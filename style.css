@@ -351,3 +351,8 @@ footer h3{
     width:100%;
     padding:15px;
 }
+
+.answers button.selected{
+    background:#a8c89b;
+    color:#fff;
+}
