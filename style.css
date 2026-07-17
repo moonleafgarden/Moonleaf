@@ -78,20 +78,17 @@ button:hover{
 
 /* ===== BOOKS ===== */
 
-.books{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+..books{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
     gap:30px;
+    max-width:700px;
+    margin:0 auto;
 }
 
 .book-row{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:30px;
+    display:contents;
 }
-
 .book{
     width:260px;
     min-height:260px;
