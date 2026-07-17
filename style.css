@@ -108,6 +108,30 @@ button:hover{
 
     transition:.4s;
 }
+
+.book:hover{
+    transform:translateY(-15px);
+}
+
+.book.active{
+    transform:translateX(-80px);
+}
+
+.book h3{
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    margin:15px 0;
+}
+
+.book p{
+    margin:15px 0 20px;
+}
+
+.book button{
+    margin-top:15px;
+}
+
+
 /* Individual book colors */
 
 .book-row:nth-child(2) .book{
