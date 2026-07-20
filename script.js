@@ -19,3 +19,11 @@ function openTopic(button){
     panel.classList.toggle("open");
 
 }
+
+function toggleLesson(){
+
+    const lesson = document.getElementById("lesson1");
+
+    lesson.classList.toggle("show");
+
+}
