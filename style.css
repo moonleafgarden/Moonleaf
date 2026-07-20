@@ -356,3 +356,69 @@ footer h3{
     background:#a8c89b;
     color:#fff;
 }
+
+
+/* ===== LESSON ===== */
+
+.lesson{
+
+    width:90%;
+    max-width:900px;
+
+    margin:60px auto;
+
+    background:#fffdf8;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    line-height:1.8;
+
+}
+
+.lesson h2,
+.lesson h3{
+
+    font-family:'Playfair Display',serif;
+
+    color:#31543d;
+
+    margin:25px 0 15px;
+
+}
+
+.lesson table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin:20px 0;
+
+}
+
+.lesson th,
+.lesson td{
+
+    border:1px solid #ddd;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+.lesson th{
+
+    background:#e8d29a;
+
+}
+
+.lesson ol{
+
+    margin-left:25px;
+
+}
