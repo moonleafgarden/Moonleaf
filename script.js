@@ -56,3 +56,10 @@ document.querySelectorAll(".answer-btn").forEach(button => {
     };
 
 });
+
+
+function finishChapter(){
+
+    alert("🎉 Chapter I Completed!");
+
+}
