@@ -519,3 +519,60 @@ footer h3{
     color:white;
 
 }
+
+.lesson-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:center;
+
+    margin-top:40px;
+
+}
+
+.check-btn,
+.finish-btn{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.check-btn{
+
+    background:#d7e7d1;
+
+    color:#31543d;
+
+}
+
+.check-btn:hover{
+
+    background:#bfd7b6;
+
+}
+
+.finish-btn{
+
+    background:#f2e7b5;
+
+    color:#6b5b1f;
+
+}
+
+.finish-btn:hover{
+
+    background:#e7d98e;
+
+}
