@@ -46,3 +46,13 @@ document.addEventListener("click", function(e){
 });
 
 console.log("Script loaded!");
+
+document.querySelectorAll(".answer-btn").forEach(button => {
+
+    button.onclick = function(){
+
+        console.log("Clicked:", button.textContent);
+
+    };
+
+});
