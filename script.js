@@ -60,7 +60,11 @@ document.querySelectorAll(".answer-btn").forEach(button => {
 
 function finishChapter(){
 
+    localStorage.setItem("A1_Chapter1", "completed");
+
     alert("🎉 Chapter I Completed!");
+
+    location.reload();
 
 }
 
@@ -124,3 +128,32 @@ function checkAnswers(){
     }
 
 }
+
+
+function loadProgress(){
+
+    const chapter1 = localStorage.getItem("A1_Chapter1");
+
+    if(chapter1 === "completed"){
+
+        document.querySelector(".opened-text").textContent =
+        "✅ Completed";
+
+        const chapter2 =
+        document.querySelectorAll(".chapter-card")[1];
+
+        chapter2.innerHTML = `
+
+        <h3>📖 Chapter II</h3>
+
+        <span class="opened-text">
+        📖 Opened
+        </span>
+
+        `;
+
+    }
+
+}
+
+loadProgress();
