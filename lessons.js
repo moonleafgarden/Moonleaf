@@ -1,122 +1,206 @@
-const chapters = [
-    {
-        id: 1,
-        title: "The Verb 'to be'",
-        status: "opened"
-    },
-    {
-        id: 2,
-        title: "Subject Pronouns",
-        status: "locked"
-    },
-    {
-        id: 3,
-        title: "Articles (a / an)",
-        status: "locked"
-    },
-    {
-        id: 4,
-        title: "Plural Nouns",
-        status: "locked"
-    },
-    {
-        id: 5,
-        title: "This • That • These • Those",
-        status: "locked"
-    },
-    {
-        id: 6,
-        title: "Possessive Adjectives",
-        status: "locked"
-    },
-    {
-        id: 7,
-        title: "There is / There are",
-        status: "locked"
-    },
-    {
-        id: 8,
-        title: "Have got / Has got",
-        status: "locked"
-    },
-    {
-        id: 9,
-        title: "Present Simple",
-        status: "locked"
-    },
-    {
-        id: 10,
-        title: "Questions in Present Simple",
-        status: "locked"
-    },
-    {
-        id: 11,
-        title: "Short Answers",
-        status: "locked"
-    },
-    {
-        id: 12,
-        title: "Can / Can't",
-        status: "locked"
-    },
-    {
-        id: 13,
-        title: "Imperatives",
-        status: "locked"
-    },
-    {
-        id: 14,
-        title: "Prepositions of Place",
-        status: "locked"
-    },
-    {
-        id: 15,
-        title: "Prepositions of Time",
-        status: "locked"
-    },
-    {
-        id: 16,
-        title: "Present Continuous",
-        status: "locked"
-    },
-    {
-        id: 17,
-        title: "Like + -ing",
-        status: "locked"
-    },
-    {
-        id: 18,
-        title: "Object Pronouns",
-        status: "locked"
-    },
-    {
-        id: 19,
-        title: "Possessive 's",
-        status: "locked"
-    },
-    {
-        id: 20,
-        title: "Adverbs of Frequency",
-        status: "locked"
-    },
-    {
-        id: 21,
-        title: "Some / Any",
-        status: "locked"
-    },
-    {
-        id: 22,
-        title: "Countable & Uncountable",
-        status: "locked"
-    },
-    {
-        id: 23,
-        title: "Would Like",
-        status: "locked"
-    },
-    {
-        id: 24,
-        title: "Final Review",
-        status: "locked"
-    }
-];
+const lessons = {
+
+1:{
+
+title:"🌱 Chapter I — The Verb 'to be'",
+
+intro:`
+
+<p class="lesson-intro">
+
+The verb <b>to be</b> is one of the most important verbs in English.
+It helps us describe people, places, feelings, jobs and things.
+
+</p>
+
+`,
+
+theory:`
+
+<h3>📖 Theory</h3>
+
+<p><b>am</b> → I</p>
+
+<p><b>is</b> → He • She • It</p>
+
+<p><b>are</b> → You • We • They</p>
+
+<table>
+
+<tr>
+
+<th>Subject</th>
+
+<th>Verb</th>
+
+</tr>
+
+<tr>
+
+<td>I</td>
+
+<td>am</td>
+
+</tr>
+
+<tr>
+
+<td>He / She / It</td>
+
+<td>is</td>
+
+</tr>
+
+<tr>
+
+<td>You / We / They</td>
+
+<td>are</td>
+
+</tr>
+
+</table>
+
+`,
+
+examples:`
+
+<h3>✨ Examples</h3>
+
+<ul>
+
+<li>I am a student.</li>
+
+<li>She is happy.</li>
+
+<li>He is eleven.</li>
+
+<li>We are friends.</li>
+
+<li>They are at school.</li>
+
+<li>It is cold today.</li>
+
+</ul>
+
+`,
+
+tips:`
+
+<h3>💡 Tips</h3>
+
+<div class="tip-box">
+
+<p>✅ I → am</p>
+
+<p>✅ He → is</p>
+
+<p>✅ She → is</p>
+
+<p>✅ It → is</p>
+
+<p>✅ You → are</p>
+
+<p>✅ We → are</p>
+
+<p>✅ They → are</p>
+
+</div>
+
+`,
+
+mistakes:`
+
+<h3>⚠ Common Mistakes</h3>
+
+<ul>
+
+<li>❌ I is happy.</li>
+
+<li>✅ I am happy.</li>
+
+<li>❌ She am tired.</li>
+
+<li>✅ She is tired.</li>
+
+<li>❌ They is late.</li>
+
+<li>✅ They are late.</li>
+
+</ul>
+
+`,
+
+summary:`
+
+<h3>📝 Summary</h3>
+
+<div class="summary-box">
+
+<p><b>I → am</b></p>
+
+<p><b>He / She / It → is</b></p>
+
+<p><b>You / We / They → are</b></p>
+
+</div>
+
+`,
+
+practice:[
+
+{
+
+question:"I ____ a student.",
+
+answers:["am","is","are","be"],
+
+correct:0
+
+},
+
+{
+
+question:"She ____ happy.",
+
+answers:["am","is","are","be"],
+
+correct:1
+
+},
+
+{
+
+question:"They ____ friends.",
+
+answers:["am","is","are","be"],
+
+correct:2
+
+},
+
+{
+
+question:"We ____ at school.",
+
+answers:["am","is","are","be"],
+
+correct:2
+
+},
+
+{
+
+question:"It ____ cold today.",
+
+answers:["am","is","are","be"],
+
+correct:1
+
+}
+
+]
+
+}
+
+};
