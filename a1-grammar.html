@@ -260,10 +260,25 @@ It is used to talk about people, places, feelings and things.
 
 <br>
 
-<button class="finish-btn" onclick="finishChapter()">
-    🌸 Finish Chapter
-</button>
+<div class="lesson-buttons">
 
+    <button class="check-btn" onclick="checkAnswers()">
+        ✅ Check Answers
+    </button>
+
+    <button
+        class="finish-btn"
+        id="finish-btn"
+        onclick="finishChapter()"
+        disabled>
+
+        🌸 Finish Chapter
+
+    </button>
+
+</div>
+
+<p id="practice-result"></p>
 </div>
 <div class="chapter-card">
     <h3>📖 Chapter II</h3>
