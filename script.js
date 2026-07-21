@@ -63,3 +63,12 @@ function finishChapter(){
     alert("🎉 Chapter I Completed!");
 
 }
+
+function checkAnswers(){
+
+    document.getElementById("practice-result").innerHTML =
+    "⭐ 5 / 5 <br> 🌸 +10 Peonies";
+
+    document.getElementById("finish-btn").disabled = false;
+
+}
