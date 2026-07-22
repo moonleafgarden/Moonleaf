@@ -9,7 +9,7 @@ function openBook(button){
     book.classList.toggle("active");
 
     panel.classList.toggle("show");
-
+}
 
 // =======================================
 // Moonleaf Vocabulary Script
