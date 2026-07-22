@@ -12,315 +12,153 @@ function openBook(button){
 
 }
 
-// ========================================
-// Moonleaf Script
-// Part 1
-// ========================================
+// =======================================
+// Moonleaf Vocabulary Script
+// =======================================
 
-const chapterList = document.getElementById("chapter-list");
-const lessonContainer = document.getElementById("lesson-container");
+// Open lesson
+function openLesson(id) {
 
-// ===============================
-// Create Chapters
-// ===============================
+    const lesson = vocabularyLessons[id];
+    const container = document.getElementById("lesson-container");
 
-function createChapters() {
+    if (!lesson) {
+        container.innerHTML = "<h2>Lesson not found.</h2>";
+        return;
+    }
 
-    if (!chapterList) return;
+    let vocabularyRows = "";
 
-    chapterList.innerHTML = "";
+    lesson.vocabulary.forEach(word => {
 
-    chapters.forEach(chapter => {
-
-        const card = document.createElement("div");
-
-        card.className = "chapter-card";
-
-        card.innerHTML = `
-            <h3>📖 Chapter ${chapter.id}</h3>
-
-            <p>${chapter.title}</p>
-
-            <span class="${chapter.status === "opened" ? "opened-text" : "locked-text"}">
-                ${chapter.status === "opened" ? "📖 Opened" : "🔒 Locked"}
-            </span>
+        vocabularyRows += `
+        <tr>
+            <td>${word.word}</td>
+            <td>${word.meaning}</td>
+            <td>${word.example}</td>
+        </tr>
         `;
-
-        if (chapter.status === "opened") {
-
-            card.addEventListener("click", () => {
-
-                openLesson(chapter.id);
-
-            });
-
-        }
-
-        chapterList.appendChild(card);
 
     });
 
-}
+    let tips = "";
 
-// ===============================
-// Open Lesson
-// ===============================
+    lesson.tips.forEach(tip => {
 
-function openLesson(id){
+        tips += `<p>✅ ${tip}</p>`;
 
-    const lesson = lessons[id];
+    });
 
-    if(!lesson){
+    let mistakes = "";
 
-        lessonContainer.innerHTML = `
-            <h2>Lesson not found</h2>
+    lesson.mistakes.forEach(mistake => {
+
+        mistakes += `
+        <li>❌ ${mistake.wrong}</li>
+        <li>✅ ${mistake.correct}</li>
+        <br>
         `;
 
-        return;
+    });
 
-    }
+    let summary = "";
 
-    lessonContainer.innerHTML = `
+    lesson.summary.forEach(point => {
 
-        <div class="lesson-content show">
+        summary += `<p>${point}</p>`;
 
-            <h2>${lesson.title}</h2>
+    });
 
-            ${lesson.intro}
+    container.innerHTML = `
 
-            <hr>
+    <div class="lesson-content">
 
-            ${lesson.theory}
+        <h2>${lesson.title}</h2>
 
-            <hr>
+        <p class="lesson-intro">
+            ${lesson.description}
+        </p>
 
-            ${lesson.examples}
+        <hr>
 
-            <hr>
+        <h3>📚 Vocabulary</h3>
 
-            ${lesson.tips}
+        <table>
 
-            <hr>
+            <tr>
+                <th>Word</th>
+                <th>Meaning</th>
+                <th>Example</th>
+            </tr>
 
-            ${lesson.mistakes}
+            ${vocabularyRows}
 
-            <hr>
+        </table>
 
-            ${lesson.summary}
+        <hr>
 
-            <hr>
+        <h3>💬 Example Dialogue</h3>
 
-            <div id="practice"></div>
+        ${lesson.dialogue}
 
-            <br>
+        <hr>
 
-            <div class="lesson-buttons">
+        <h3>💡 Tips</h3>
 
-                <button
-                    class="check-btn"
-                    onclick="checkAnswers()">
+        <div class="tip-box">
 
-                    ✅ Check Answers
-
-                </button>
-
-                <button
-class="finish-btn"
-id="finish-btn"
-onclick="finishChapter()"
-disabled>
-
-🌸 Finish Chapter
-
-</button>
-
-            </div>
-
-            <p id="practice-result"></p>
+            ${tips}
 
         </div>
+
+        <hr>
+
+        <h3>⚠ Common Mistakes</h3>
+
+        <ul>
+
+            ${mistakes}
+
+        </ul>
+
+        <hr>
+
+        <h3>📝 Summary</h3>
+
+        <div class="summary-box">
+
+            ${summary}
+
+        </div>
+
+        <br>
+
+        <div class="lesson-buttons">
+
+            <button
+                class="finish-btn"
+                onclick="finishChapter(${id})">
+
+                🌸 Finish Chapter
+
+            </button>
+
+        </div>
+
+    </div>
 
     `;
 
-    createPractice(id);
-
 }
 
-// ===============================
-// Start
-// ===============================
-
-createChapters();
-
-
-// ===============================
-// Create Practice
-// ===============================
-
-function createPractice(id){
-
-    const lesson = lessons[id];
-
-    const practice = document.getElementById("practice");
-
-    if(!lesson.practice || lesson.practice.length === 0){
-
-        practice.innerHTML = "<p>No practice yet.</p>";
-
-        return;
-
-    }
-
-    let html = "<h3>🎯 Practice</h3>";
-
-    lesson.practice.forEach((question,index)=>{
-
-        html += `
-
-        <div class="practice-question">
-
-            <p>${index+1}. ${question.question}</p>
-
-            <div
-                class="answer-group"
-                data-answer="${question.correct}">
-
-        `;
-
-        question.answers.forEach((answer,i)=>{
-
-            html += `
-
-                <button
-                    class="answer-btn"
-                    onclick="selectAnswer(this)">
-
-                    ${answer}
-
-                </button>
-
-            `;
-
-        });
-
-        html += `
-
-            </div>
-
-            <br>
-
-        </div>
-
-        `;
-
-    });
-
-    practice.innerHTML = html;
-
-}
-
-// ===============================
-// Select Answer
-// ===============================
-
-function selectAnswer(button){
-
-    const group = button.parentElement;
-
-    group.querySelectorAll(".answer-btn").forEach(btn=>{
-
-        btn.classList.remove("selected");
-
-    });
-
-    button.classList.add("selected");
-
-}
-
-// ===============================
-// Check Answers
-// ===============================
-
-function checkAnswers(){
-
-    let score = 0;
-
-    const groups = document.querySelectorAll(".answer-group");
-
-    groups.forEach(group=>{
-
-        const correct =
-        Number(group.dataset.answer);
-
-        const buttons =
-        group.querySelectorAll(".answer-btn");
-
-        let selected = -1;
-
-        buttons.forEach((button,index)=>{
-
-            button.style.background = "";
-            button.style.color = "";
-
-            if(button.classList.contains("selected")){
-
-                selected = index;
-
-            }
-
-        });
-
-        if(selected === correct){
-
-            score++;
-
-            buttons[selected].style.background="#8FCB81";
-            buttons[selected].style.color="white";
-
-        }
-
-        else if(selected !== -1){
-
-            buttons[selected].style.background="#E67C73";
-            buttons[selected].style.color="white";
-
-            buttons[correct].style.background="#8FCB81";
-            buttons[correct].style.color="white";
-
-        }
-
-    });
-
-    const result =
-    document.getElementById("practice-result");
-
-    result.innerHTML =
-    `⭐ Score: ${score}/${groups.length}`;
-
-    if(score === groups.length){
-
-        result.innerHTML +=
-        "<br>🌸 +10 Peonies";
-
-        document
-        .getElementById("finish-btn")
-        .disabled = false;
-
-    }
-
-}
-
-// ===============================
+// =======================================
 // Finish Chapter
-// ===============================
+// =======================================
 
-function finishChapter(){
+function finishChapter(id) {
 
-    localStorage.setItem(
-        "chapter1",
-        "completed"
-    );
+    localStorage.setItem(`VocabularyChapter${id}`, "completed");
 
-    alert("🎉 Chapter I Completed!");
+    alert("🎉 Chapter Completed!");
 
 }
