@@ -198,14 +198,64 @@ function openLesson(id) {
 
 function finishChapter(id) {
 
-
     localStorage.setItem(
         `VocabularyChapter${id}`,
         "completed"
     );
 
 
+    unlockNextChapter(id);
+
+
     alert("🎉 Chapter Completed!");
 
+}
+
+
+    // =======================================
+// Check completed chapters
+// =======================================
+
+function checkProgress(id) {
+
+    const completed = localStorage.getItem(
+        `VocabularyChapter${id}`
+    );
+
+    if (completed === "completed") {
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+
+// =======================================
+// Unlock next chapter
+// =======================================
+
+function unlockNextChapter(id) {
+
+    const nextChapter = document.querySelector(
+        `.chapter-card:nth-child(${id + 1})`
+    );
+
+
+    if (nextChapter) {
+
+        nextChapter.classList.remove("locked");
+
+        const lock = nextChapter.querySelector(".locked-text");
+
+        if (lock) {
+
+            lock.innerHTML = "📖 Opened";
+
+        }
+
+    }
 
 }
