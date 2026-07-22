@@ -183,10 +183,6 @@ function openLesson(id) {
     `;
 
 
-    // плавная прокрутка к уроку
-    container.scrollIntoView({
-        behavior: "smooth"
-    });
 
 }
 
