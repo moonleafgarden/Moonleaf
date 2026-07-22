@@ -17,6 +17,14 @@ function openBook(button){
 // =======================================
 
 // Open lesson
+
+function openLesson(id) {
+
+    console.log("Clicked chapter:", id);
+    console.log(vocabularyLessons);
+
+    const lesson = vocabularyLessons[id];
+
 function openLesson(id) {
 
     const lesson = vocabularyLessons[id];
