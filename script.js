@@ -97,7 +97,7 @@ function openLesson(id) {
 
     container.innerHTML = `
 
-    <div class="lesson-content">
+    <div class="lesson-content show">
 
 
         <h2>${lesson.title}</h2>
