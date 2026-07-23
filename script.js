@@ -19,16 +19,17 @@ function openBook(button){
 // Open lesson
 function openLesson(id) {
 
-    alert("1");
+    console.log("Function started");
 
     const lesson = vocabularyLessons[id];
-
-    alert("2");
+    console.log(lesson);
 
     const container = document.getElementById("lesson-container");
+    console.log(container);
 
-    alert("3");
+    container.innerHTML = "<h2>Hello Moonleaf!</h2>";
 
+}
 
     if (!lesson) {
         container.innerHTML = `
