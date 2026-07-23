@@ -19,8 +19,15 @@ function openBook(button){
 // Open lesson
 function openLesson(id) {
 
+    alert("1");
+
     const lesson = vocabularyLessons[id];
+
+    alert("2");
+
     const container = document.getElementById("lesson-container");
+
+    alert("3");
 
 
     if (!lesson) {
