@@ -201,4 +201,3 @@ const vocabularyLessons = {
 };
 
 
-alert("a1-vocabulary.js loaded");
