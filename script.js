@@ -22,18 +22,55 @@ function openBook(button) {
 
 function openLesson(id) {
 
-    const lesson = vocabularyLessons[id];
-
     const container = document.getElementById("lesson-container");
+
+    // Close the lesson if it is already open
+    if (container.dataset.lessonId == id) {
+
+        container.innerHTML = "";
+        container.dataset.lessonId = "";
+
+        return;
+
+    }
+
+    container.dataset.lessonId = id;
+
+    const lesson = vocabularyLessons[id];
 
     if (!lesson) {
 
         container.innerHTML = `
-            <h2>❌ Lesson not found</h2>
+            <h2>Lesson not found.</h2>
         `;
 
         return;
+
     }
+
+function openLesson(id) {
+
+    const container = document.getElementById("lesson-container");
+
+    // Если этот урок уже открыт — закрываем
+    if (container.dataset.lesson == id) {
+
+        container.innerHTML = "";
+        container.dataset.lesson = "";
+
+        return;
+    }
+
+    const lesson = vocabularyLessons[id];
+
+    if (!lesson) {
+
+        container.innerHTML = "<h2>❌ Lesson not found</h2>";
+        return;
+
+    }
+
+    container.dataset.lesson = id;
 
     let vocabularyRows = "";
 
@@ -49,49 +86,14 @@ function openLesson(id) {
 
     });
 
-    let tips = "";
-
-    lesson.tips.forEach(tip => {
-
-        tips += `<p>🌱 ${tip}</p>`;
-
-    });
-
-    let mistakes = "";
-
-    lesson.mistakes.forEach(item => {
-
-        mistakes += `
-        <li>
-            ❌ ${item.wrong}<br>
-            ✅ ${item.correct}
-        </li>
-        `;
-
-    });
-
-    let summary = "";
-
-    lesson.summary.forEach(item => {
-
-        summary += `<p>${item}</p>`;
-
-    });
-
     container.innerHTML = `
-
 <div class="lesson-content show">
 
 <h2>${lesson.title}</h2>
 
 ${lesson.description}
 
-<hr>
-
-<h3>📚 Vocabulary</h3>
-
 <table>
-
 <tr>
 <th>Word</th>
 <th>Meaning</th>
@@ -102,56 +104,7 @@ ${vocabularyRows}
 
 </table>
 
-<hr>
-
-<h3>💬 Dialogue</h3>
-
-<div class="dialogue-box">
-
-${lesson.dialogue}
-
 </div>
-
-<hr>
-
-<h3>💡 Tips</h3>
-
-<div class="tip-box">
-
-${tips}
-
-</div>
-
-<hr>
-
-<h3>⚠ Common Mistakes</h3>
-
-<ul>
-
-${mistakes}
-
-</ul>
-
-<hr>
-
-<h3>📝 Summary</h3>
-
-<div class="summary-box">
-
-${summary}
-
-</div>
-
-<br>
-
-<button class="finish-btn" onclick="finishChapter(${id})">
-
-🌸 Finish Chapter
-
-</button>
-
-</div>
-
 `;
 
     container.scrollIntoView({
@@ -159,7 +112,7 @@ ${summary}
     });
 
 }
-
+}
 // ---------- Finish Chapter ----------
 
 function finishChapter(id) {
